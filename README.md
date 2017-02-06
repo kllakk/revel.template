@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kllakk/revel.template.svg?branch=master)](https://travis-ci.org/kllakk/revel.template)
+
 # Welcome to Revel
 
 ## Getting Started
