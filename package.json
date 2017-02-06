@@ -8,6 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "lodash": "^4.17.4",
     "webpack": "^2.2.1"
   },
   "scripts": {
