@@ -1,0 +1,27 @@
+{
+  "name": "revel.template",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/kllakk/revel.template.svg?branch=master)](https://travis-ci.org/kllakk/revel.template)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kllakk/revel.template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kllakk/revel.template/issues"
+  },
+  "homepage": "https://github.com/kllakk/revel.template#readme"
+}

@@ -8,3 +8,4 @@ revel/revel
 
 .idea/
 *.iml
+node_modules/
