@@ -9,9 +9,10 @@ go:
 branches:
   only:
   - develop
+  - master
 
 before_install:
   - go get -u github.com/revel/cmd/revel
 
 script:
-  - revel test github.com/kllakk/revel.template dev
+  - revel test github.com/kllakk/revel.template
