@@ -74,7 +74,7 @@
 /* harmony export (immutable) */ __webpack_exports__["a"] = bar;
 function bar() {
     //
-    console.log('bar')
+    console.log('bar');
 }
 
 /***/ }),
@@ -17239,11 +17239,11 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__bar__["a" /* default */])();
 
 
 
-function component () {
+function component() {
     var element = document.createElement('div');
 
     /* lodash is required for the next line to work */
-    element.innerHTML = __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.join(['Hello','webpack'], ' ');
+    element.innerHTML = __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.join(['Hello', 'webpack'], ' ');
 
     return element;
 }
