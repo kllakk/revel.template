@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - 1.x
+  - 1.6
+  - 1.7.x
+  - master
+
+branches:
+  only:
+  - develop
+
+before_install:
+  - go get -u github.com/revel/cmd/revel
+
+script:
+  - revel test github.com/kllakk/revel.template dev
