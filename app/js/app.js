@@ -2,7 +2,7 @@ import bar from './bar';
 
 bar();
 
-var _ = require('lodash');
+import _ from 'lodash';
 
 function component () {
     var element = document.createElement('div');

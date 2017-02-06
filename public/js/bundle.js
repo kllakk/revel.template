@@ -17231,17 +17231,19 @@ module.exports = function(module) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bar__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
 
 
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__bar__["a" /* default */])();
 
-var _ = __webpack_require__(1);
+
 
 function component () {
     var element = document.createElement('div');
 
     /* lodash is required for the next line to work */
-    element.innerHTML = _.join(['Hello','webpack'], ' ');
+    element.innerHTML = __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.join(['Hello','webpack'], ' ');
 
     return element;
 }
