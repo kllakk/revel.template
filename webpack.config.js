@@ -4,9 +4,12 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 var path = require('path');
 
 const config = {
-    entry: './app/js/app.js',
+    entry: {
+        bundle: './app/js/app.js'
+    },
     output: {
-        filename: 'bundle.js',
+        //filename: '[name].[chunkhash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'public', 'js')
     },
     module: {
@@ -33,12 +36,17 @@ const config = {
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
                 use: 'file-loader?name=[name].[ext]&publicPath=/public/fonts/&outputPath=./../fonts/',
+            },
+            {
+                test   : /\.(jpg|png|gif)$/,
+                loader : 'url-loader?name=[name].[hash].[ext]'
             }
         ]
     },
     plugins: [
         //new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin('./../css/bundle.css'),
+        //new ExtractTextPlugin('./../css/[name].[contenthash].css'),
+        new ExtractTextPlugin('./../css/[name].css'),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
