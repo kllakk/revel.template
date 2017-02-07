@@ -14,14 +14,14 @@ const config = {
                 test: /\.(scss|sass)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader!sass-loader'
+                    use: 'css-loader?importLoaders=1!postcss-loader!sass-loader'
                 })
             },
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader'
+                    use: 'css-loader?importLoaders=1!postcss-loader'
                 })
             },
             {
