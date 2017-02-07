@@ -2,7 +2,7 @@ import "jquery";
 import "tether";
 import "bootstrap";
 import "font-awesome/scss/font-awesome.scss";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/scss/bootstrap.scss";
 import "./../css/site.scss";
 import _ from 'lodash';
 
