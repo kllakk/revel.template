@@ -9,8 +9,8 @@ const config = {
     },
     output: {
         //filename: '[name].[chunkhash].js',
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'public', 'js')
+        filename: './js/[name].js',
+        path: path.resolve(__dirname, 'public')
     },
     module: {
         rules: [
@@ -35,7 +35,7 @@ const config = {
             },
             {
                 test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/,
-                use: 'file-loader?name=[name].[ext]&publicPath=/public/fonts/&outputPath=./../fonts/',
+                use: 'file-loader?name=[name].[ext]&publicPath=/public/fonts/&outputPath=./fonts/',
             },
             {
                 test   : /\.(jpg|png|gif)$/,
@@ -46,13 +46,13 @@ const config = {
     plugins: [
         //new webpack.optimize.UglifyJsPlugin(),
         //new ExtractTextPlugin('./../css/[name].[contenthash].css'),
-        new ExtractTextPlugin('./../css/[name].css'),
+        new ExtractTextPlugin('./css/[name].css'),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
         }),
         new ManifestPlugin({
-            fileName: './../manifest.json',
+            fileName: './manifest.json',
         }),
     ]
 }
