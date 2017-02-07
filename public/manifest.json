@@ -1,0 +1,9 @@
+{
+  "..\\fonts\\fontawesome-webfont.eot?v=4.7.0": "./../fonts/fontawesome-webfont.eot",
+  "..\\fonts\\fontawesome-webfont.svg?v=4.7.0": "./../fonts/fontawesome-webfont.svg",
+  "..\\fonts\\fontawesome-webfont.ttf?v=4.7.0": "./../fonts/fontawesome-webfont.ttf",
+  "..\\fonts\\fontawesome-webfont.woff2?v=4.7.0": "./../fonts/fontawesome-webfont.woff2",
+  "..\\fonts\\fontawesome-webfont.woff?v=4.7.0": "./../fonts/fontawesome-webfont.woff",
+  "main.css": "./../css/bundle.css",
+  "main.js": "bundle.js"
+}

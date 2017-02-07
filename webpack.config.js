@@ -1,5 +1,6 @@
 const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ManifestPlugin = require('webpack-manifest-plugin');
 var path = require('path');
 
 const config = {
@@ -41,7 +42,10 @@ const config = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+        }),
+        new ManifestPlugin({
+            fileName: './../manifest.json',
+        }),
     ]
 }
 
