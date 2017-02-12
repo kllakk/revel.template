@@ -1,6 +1,23 @@
 package app
 
-import "github.com/revel/revel"
+import (
+	"github.com/revel/revel"
+	"github.com/tarantool/go-tarantool"
+)
+
+func InitDB() {
+	opts := tarantool.Opts{User: "guest"}
+	_, err := tarantool.Connect("163.172.131.93:3301", opts)
+	if err != nil {
+		revel.INFO.Println("DB Error", err)
+	}
+	revel.INFO.Println("DB Connected")
+	//resp, err := conn.Insert(999, []interface{}{99999, "BB"})
+	//if err != nil {
+	//	fmt.Println("Error", err)
+	//	fmt.Println("Code", resp.Code)
+	//}
+}
 
 func init() {
 	// Filters is the default set of global filters.
@@ -21,7 +38,7 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
-	// revel.OnAppStart(InitDB)
+	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
 
