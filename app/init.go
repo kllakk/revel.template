@@ -20,7 +20,7 @@ func InitDB() {
 	var err error
 	Tarantool, err = tarantool.Connect("163.172.131.93:3301", opts)
 	if err != nil {
-		revel.INFO.Println("DB Error", err)
+		revel.INFO.Fatalf("Failed to connect: %s", err.Error())
 	}
 	revel.INFO.Println("DB Connected")
 
