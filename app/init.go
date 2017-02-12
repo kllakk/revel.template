@@ -3,20 +3,38 @@ package app
 import (
 	"github.com/revel/revel"
 	"github.com/tarantool/go-tarantool"
+	"time"
 )
 
+var Tarantool *tarantool.Connection
+
 func InitDB() {
-	opts := tarantool.Opts{User: "guest"}
-	_, err := tarantool.Connect("163.172.131.93:3301", opts)
+	opts := tarantool.Opts{
+		Timeout:       500 * time.Millisecond,
+		Reconnect:     1 * time.Second,
+		MaxReconnects: 3,
+		User: "guest",
+		//Pass: "test",
+	}
+
+	var err error
+	Tarantool, err = tarantool.Connect("163.172.131.93:3301", opts)
 	if err != nil {
 		revel.INFO.Println("DB Error", err)
 	}
 	revel.INFO.Println("DB Connected")
-	//resp, err := conn.Insert(999, []interface{}{99999, "BB"})
-	//if err != nil {
-	//	fmt.Println("Error", err)
-	//	fmt.Println("Code", resp.Code)
-	//}
+
+	resp, err := Tarantool.Ping()
+	revel.INFO.Println(resp.Code)
+	revel.INFO.Println(resp.Data)
+	revel.INFO.Println(err)
+
+	// run raw lua code
+	//resp, err = Tarantool.Eval("return 1 + 2", []interface{}{})
+	//revel.INFO.Println("Eval")
+	//revel.INFO.Println("Error", err)
+	//revel.INFO.Println("Code", resp.Code)
+	//revel.INFO.Println("Data", resp.Data)
 }
 
 func init() {
