@@ -14,6 +14,7 @@ branches:
 before_install:
   - go get -u github.com/revel/cmd/revel
   - go get github.com/joho/godotenv
+  - go get github.com/tarantool/go-tarantool
   - cp .env.example .env
 
 script:
