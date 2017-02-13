@@ -13,6 +13,8 @@ branches:
 
 before_install:
   - go get -u github.com/revel/cmd/revel
+  - go get github.com/joho/godotenv
+  - cp .env.example .env
 
 script:
   - revel test github.com/kllakk/revel.template
