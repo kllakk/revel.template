@@ -4,21 +4,30 @@ import (
 	"github.com/revel/revel"
 	"github.com/tarantool/go-tarantool"
 	"time"
+	"os"
+	"github.com/joho/godotenv"
 )
 
 var Tarantool *tarantool.Connection
+
+func InitENV() {
+	err := godotenv.Load()
+	if err != nil {
+		revel.INFO.Fatal("Error loading .env file")
+	}
+}
 
 func InitDB() {
 	opts := tarantool.Opts{
 		Timeout:       500 * time.Millisecond,
 		Reconnect:     1 * time.Second,
 		MaxReconnects: 3,
-		User: "guest",
-		//Pass: "test",
+		User: os.Getenv("TARANTOOL_USER"),
+		Pass: os.Getenv("TARANTOOL_PASW"),
 	}
 
 	var err error
-	Tarantool, err = tarantool.Connect("163.172.131.93:3301", opts)
+	Tarantool, err = tarantool.Connect(os.Getenv("TARANTOOL_ADDR"), opts)
 	if err != nil {
 		revel.INFO.Fatalf("Failed to connect: %s", err.Error())
 	}
@@ -56,6 +65,7 @@ func init() {
 
 	// register startup functions with OnAppStart
 	// ( order dependent )
+	revel.OnAppStart(InitENV)
 	revel.OnAppStart(InitDB)
 	// revel.OnAppStart(FillCache)
 }
