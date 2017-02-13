@@ -24,6 +24,11 @@ func (t *AppTest) TestThatDBWorks() {
 	t.AssertEqual(uint32(0), resp.Code)
 }
 
+func (t *AppTest) TestThatRestAPIWorks() {
+	t.Get("/tester3")
+	t.AssertOk()
+	t.AssertContentType("application/json; charset=utf-8")
+}
 
 func (t *AppTest) After() {
 	println("Tear down")
