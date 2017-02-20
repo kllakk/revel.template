@@ -11,7 +11,16 @@ import (
 var Tarantool *tarantool.Connection
 
 func InitENV() {
-	err := godotenv.Load()
+
+	// текущая рабочая директория
+	pwd, err := os.Getwd()
+	if err != nil {
+		revel.INFO.Println(err)
+		os.Exit(1)
+	}
+	revel.INFO.Println(pwd)
+
+	err = godotenv.Load()
 	if err != nil {
 		revel.INFO.Fatal("Error loading .env file")
 	}
